@@ -3,6 +3,7 @@ import styles from './App.module.css';
 import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 import Statistics from 'components/Statistics/Statistics';
 import Section from 'components/Section/Section';
+import Notification from 'components/Notification/Notification';
 
 class App extends React.Component {
   state = {
@@ -40,13 +41,15 @@ class App extends React.Component {
         </Section>
 
         <Section title="Statistics">
-          {
+          {countTotalFeedback() > 0 ? (
             <Statistics
               state={state}
               total={countTotalFeedback()}
               positivePercentage={countPositiveFeedbackPercentage()}
             />
-          }
+          ) : (
+            <Notification message="No feedback given" />
+          )}
         </Section>
       </div>
     );
