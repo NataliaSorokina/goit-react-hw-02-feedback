@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './App.module.css';
 import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 import Statistics from 'components/Statistics/Statistics';
 import Section from 'components/Section/Section';
@@ -35,7 +34,7 @@ class App extends React.Component {
     const options = Object.keys(state);
 
     return (
-      <div>
+      <>
         <Section title="Please leave feedback">
           {<FeedbackOptions options={options} onLeaveFeedback={handleFeedback} />}
         </Section>
@@ -51,7 +50,7 @@ class App extends React.Component {
             <Notification message="No feedback given" />
           )}
         </Section>
-      </div>
+      </>
     );
   }
 }
