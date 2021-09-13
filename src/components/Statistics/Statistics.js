@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { List, ListItem } from './Statistics.styled';
 
-const Statistics = ({ state, total, positivePercentage }) => {
-  const { good, neutral, bad } = state;
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
     <List>
       <ListItem>

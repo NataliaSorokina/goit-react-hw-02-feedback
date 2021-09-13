@@ -30,21 +30,23 @@ class App extends React.Component {
   };
 
   render() {
-    const { state, handleFeedback, countTotalFeedback, countPositiveFeedbackPercentage } = this;
-    const options = Object.keys(state);
+    const { good, neutral, bad } = this.state;
+    const options = Object.keys(this.state);
 
     return (
       <>
         <Section title="Please leave feedback">
-          {<FeedbackOptions options={options} onLeaveFeedback={handleFeedback} />}
+          {<FeedbackOptions options={options} onLeaveFeedback={this.handleFeedback} />}
         </Section>
 
         <Section title="Statistics">
-          {countTotalFeedback() > 0 ? (
+          {this.countTotalFeedback() > 0 ? (
             <Statistics
-              state={state}
-              total={countTotalFeedback()}
-              positivePercentage={countPositiveFeedbackPercentage()}
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
             />
           ) : (
             <Notification message="No feedback given" />
